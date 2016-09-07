@@ -1,0 +1,9 @@
+<div>
+  <div class="search-area">
+    <input type="search" class="search-q" placeholder="搜索" v-model="search.key" />
+    <button class="search-button" @click="submit">搜索</button>
+  </div>
+  <select class="search-key" v-model="search.type">
+    <option v-for="type in types" :value="type.value">{{type.name}}</option>
+  </select>
+</div>

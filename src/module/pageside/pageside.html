@@ -1,0 +1,16 @@
+<div class="page-side">
+  <form v-show="!showInfo">
+    <button v-link="'/index/login'">登陆</button>
+    <button v-link="'/index/sign'">注册</button>
+  </form>
+  <div v-show="showInfo">
+    <span>尊敬的：{{name}}，您好！</span>
+  </div>
+  <search-area></search-area>
+  <ul class="side-list">
+    <li v-for="item in list">
+      <img :src="item.img" />
+      <p>{{item.name}}</p>
+    </li>
+  </ul>
+</div>
