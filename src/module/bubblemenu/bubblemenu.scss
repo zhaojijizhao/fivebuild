@@ -1,0 +1,72 @@
+@import "_var.scss";
+@import "../../common/_common.scss";
+a{
+  text-decoration: none;
+}
+.bubble__menu{
+  position: relative;
+  z-index: 1;
+  .bubble__menu-link{
+    position: absolute;
+    z-index: 2;
+    color: #fff;
+    display: block;
+    text-align: center;
+    border-radius: 999px;
+    box-sizing: border-box;
+    &.bubble__menu-link-main{
+      margin: rem(-70) 0 0 rem(-70);
+      width: rem(140);
+      height: rem(140);
+      padding: rem(50) 0;
+      font-size: rem(24);
+      line-height: rem(40);
+      border: 1px solid #fff;
+      box-shadow: 0 0 0 rem(5) #999;
+    }
+    &.bubble__menu-link-second{
+      margin: rem(-50) 0 0 rem(-50);
+      width: rem(100);
+      height: rem(100);
+      padding: rem(30) 0;
+      font-size: rem(14);
+      line-height: rem(20);
+    }
+    &.bubble__menu-link-third{
+      margin: rem(-40) 0 0 rem(-40);
+      width: rem(80);
+      height: rem(80);
+      padding: rem(30) 0;
+      font-size: rem(12);
+      line-height: rem(20);
+    }
+  }
+  .bubble__menu-line{
+    position:absolute;
+    z-index: 1;
+    display: block;
+    border-radius: 999px;
+    transform-origin: 50% 0;
+    &.bubble__menu-line-second{
+      width: 2px;
+    }
+    &.bubble__menu-line-third{
+      width: 1px;
+    }
+  }
+  .grey{
+    background-color: #999;
+  }
+  .yellow{
+    background-color: rgb(248,187,45);
+  }
+  .red{
+    background-color: rgb(231,68,60);
+  }
+  .blue{
+    background-color: rgb(69,135,239);
+  }
+  .green{
+    background-color: rgb(69,136,40);
+  }
+}

@@ -1,7 +1,8 @@
 'use strict';
 
-var {reqwest, utils} = require('@common');
+var {api, utils} = require('@common');
 var Toast = require('@component/toast/toast');
+require('@module/bubblemenu/bubblemenu');
 
 var MarketMenu = Vue.extend({
   template: require('./marketmenu.html'),
@@ -10,58 +11,86 @@ var MarketMenu = Vue.extend({
     return {
       links: [
         {
-          state: '/index/market/progress',
-          name: '中建各工程完成情况'
-        },
-        {
-          state: '/index/market/secondcontract',
-          name: '二级单位合同额分析'
-        },
-        {
-          state: '/index/market/thirdcontract',
-          name: '三级单位合同额分析'
-        },
-        {
-          state: '/index/market/rank',
-          name: '本月中标项目排名'
-        },
-        {
-          state: '/index/market/range',
-          name: '二级单位分类分析'
-        },
-        {
-          state: '/index/market/rangearea',
-          name: '按地区分析'
-        },
-        {
-          state: '/index/market/rangefield',
-          name: '按行业分析'
+          left: '60',
+          top: '210',
+          color: 'grey',
+          name: '市场营销',
+          sub: [
+            {
+              left: '80',
+              top: '80',
+              color: 'yellow',
+              state: '/index/market/progress',
+              name: '中建各工程<br/>完成情况',
+              lineColor: 'red',
+              lineHeight: '150',
+              lineDeg: '30'
+            },
+            {
+              left: '40',
+              top: '70',
+              color: 'blue',
+              state: '/index/market/secondcontract',
+              name: '二级单位<br/>合同额分析',
+              lineColor: 'green',
+              lineHeight: '160',
+              lineDeg: '-30'
+            },
+            {
+              left: '78',
+              top: '350',
+              color: 'red',
+              state: '/index/market/thirdcontract',
+              name: '三级单位<br/>合同额分析',
+              lineColor: 'yellow',
+              lineHeight: '120',
+              lineDeg: '150'
+            },
+            {
+              left: '18',
+              top: '200',
+              color: 'green',
+              state: '/index/market/rank',
+              name: '本月中标<br/>项目排名',
+              lineColor: 'blue',
+              lineHeight: '140',
+              lineDeg: '-87'
+            },
+            {
+              left: '30',
+              top: '330',
+              color: 'yellow',
+              state: '/index/market/range',
+              name: '二级单位<br/>分类分析',
+              lineColor: 'green',
+              lineHeight: '140',
+              lineDeg: '-135',
+              sub: [
+                {
+                  left: '15',
+                  top: '440',
+                  color: 'red',
+                  state: '/index/market/rangearea',
+                  name: '按地区分析',
+                  lineColor: 'green',
+                  lineHeight: '140',
+                  lineDeg: '-150'
+                },
+                {
+                  left: '48',
+                  top: '420',
+                  color: 'blue',
+                  state: '/index/market/rangefield',
+                  name: '按行业分析',
+                  lineColor: 'red',
+                  lineHeight: '140',
+                  lineDeg: '145'
+                }
+              ]
+            }
+          ]
         }
       ]
-    }
-  },
-  methods: {
-    submit() {
-      var _this = this;
-      // reqwest({
-      //   url: utils.APIPrefix() + 'comments?comment=' + this.comment + '&article_id=' + this.aid,
-      //   method: 'POST',
-      //   data: {
-      //     comment: this.comment,
-      //     article_id: this.aid
-      //   },
-      //   headers: {
-      //     'Authorization': 'Token token=' + this.token + ',name=' + this.name
-      //   }
-      // }).then(function (resp) {
-      //   Toast.show("发布评论成功");
-      //   setTimeout(() => {
-      //     _this.update();
-      //   }, 2000);
-      // }).catch(function (e) {
-      //   console.error(e);
-      //   Toast.show("发布评论失败");
-      // });
     }
   },
   ready() {

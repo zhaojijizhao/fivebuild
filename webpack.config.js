@@ -2,6 +2,7 @@
 var fs = require('fs');
 var path = require('path');
 var url = require('url');
+var _ = require('lodash');
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var autoprefixer = require('autoprefixer');
@@ -13,6 +14,7 @@ var glob = require('glob');
 var dnsSync = require('dns-sync');
 var child_process = require('child_process');
 var thematic = require('sass-thematic');
+var Watchpack = require('watchpack');
 
 var CI = require('./webpack');
 var STATIC_SRC = CI['static-src'];
@@ -20,13 +22,71 @@ var DIST_PATH = CI.dist;
 var ENV = CI.env;
 var VERSION = `${require('./package.json').version}@${child_process.execSync('git rev-parse --short HEAD').toString().trim('\n')}`;
 var URL_PREFIX = CI.urlPrefix;
-var DEV_SERVER_PORT = 5001;
+var DEV_SERVER_PORT = 5002;
 var pageSrcBase = path.join(__dirname, '/src/pages');
 console.log('CI', CI);
 
+function setupMockServer(app) {
+  var Watchpack = require('watchpack');
+  var wp = new Watchpack({
+    ignored: /node_modules/,
+    //aggregateTimeout: 1000
+  });
+  app.use(require('cors')({origin: true, credentials: true}));
+
+  var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, './uploads')
+    },
+    filename: function (req, file, cb) {
+      cb(null, `${file.fieldname}.${Date.now()}.${mime.extension(file.mimetype)}`);
+    }
+  });
+  var upload = multer({ storage: storage });
+  var removeRoute = require('express-remove-route');
+  function addRoute(file) {
+    let mockData = require(file);
+    let code = mockData.code || 200;
+    if (mockData.fileUpload) {
+      app[mockData.method.toLowerCase()](mockData.path, upload.array(mockData.fileUpload, 10), function (req, res, next) {
+        console.log(req.files, req.body);
+        res.send(mockData.response);
+      });
+    } else {
+      app[mockData.method.toLowerCase()](mockData.path, function (req, res, next) {
+        //console.log(req.query);
+        if (_.isFunction(mockData.response))
+          res.status(code).send(mockData.response(req.query));
+        else
+          res.status(code).send(mockData.response);
+      });
+    }
+  }
+
+  wp.on('change', function (filePath, mtime) {
+    //console.log('change', filePath);
+    let mockData = require(filePath);
+    removeRoute(app, mockData.path);
+    delete require.cache[require.resolve(filePath)];
+    addRoute(filePath);
+  });
+
+  glob('./src/pages/*/mock/*.js', function(err, files) {
+    if (err) {
+      throw err;
+    }
+
+    files.forEach(file => {
+      addRoute(file);
+    });
+
+    wp.watch(files.map(f => path.join(__dirname, f)), []);
+  });
+}
+
 var config = {
   entry: {
-    common: ['vue', 'query-string',
+    common: ['vue', 'query-string', 'echarts',
              'fastclick', 'reqwest', 'normalize.css', './src/common']
   },
   output: {
@@ -41,7 +101,8 @@ var config = {
       '@common': path.resolve(__dirname, './src/common'),
       '@component': path.resolve(__dirname, './src/components'),
       '@partial': path.resolve(__dirname, './src/partial'),
-      '@module': path.resolve(__dirname, './src/module')
+      '@module': path.resolve(__dirname, './src/module'),
+      '@vendor': path.resolve(__dirname, './vendor')
     }
   },
   eslint: {
@@ -150,43 +211,7 @@ var config = {
     historyApiFallback: false,
     port: DEV_SERVER_PORT,
     setup: function (app) {
-      app.use(require('cors')({origin: true, credentials: true}));
-
-      app.get('/api/hello', function (req, res, next) {
-        //setTimeout(() => {
-          res.send('OK');
-        //}, 5000);
-      });
-
-      var storage = multer.diskStorage({
-        destination: function (req, file, cb) {
-          cb(null, './uploads')
-        },
-        filename: function (req, file, cb) {
-          cb(null, `${file.fieldname}.${Date.now()}.${mime.extension(file.mimetype)}`);
-        }
-      });
-      var upload = multer({ storage: storage });
-      //
-      glob('./src/pages/*/mock/*.js', function(err, files) {
-        if (err) {
-          throw err;
-        }
-
-        files.forEach(file => {
-          let mockData = require(file);
-          if (mockData.fileUpload) {
-            app[mockData.method.toLowerCase()](mockData.path, upload.array(mockData.fileUpload, 10), function (req, res, next) {
-              console.log(req.files, req.body);
-              res.send(mockData.response);
-            });
-          } else {
-            app[mockData.method.toLowerCase()](mockData.path, function (req, res, next) {
-              res.send(mockData.response);
-            });
-          }
-        });
-      });
+      setupMockServer(app);
     }
   },
 };

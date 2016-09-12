@@ -1,6 +1,6 @@
 'use strict';
 
-var {reqwest, utils} = require('@common');
+var {api, utils} = require('@common');
 var Toast = require('@component/toast/toast');
 
 var MarketRangeArea = Vue.extend({

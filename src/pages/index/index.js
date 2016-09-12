@@ -8,7 +8,7 @@ var Layout = require('@partial/layout/layout');
 //页面
 var Market = require('@partial/market/market');
 var MarketMenu = require('@partial/marketmenu/marketmenu');
-var MarketProgess = require('@partial/marketprogess/marketprogess');
+var MarketProgress = require('@partial/marketprogress/marketprogress');
 var MarketSecondContract = require('@partial/marketsecondcontract/marketsecondcontract');
 var MarketThirdContract = require('@partial/marketthirdcontract/marketthirdcontract');
 var MarketRank = require('@partial/marketrank/marketrank');
@@ -44,7 +44,7 @@ router.map({
             component: MarketMenu
           },
           '/progress': {
-            component: MarketProgess
+            component: MarketProgress
           },
           '/secondcontract': {
             component: MarketSecondContract

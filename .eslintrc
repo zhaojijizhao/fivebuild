@@ -4,7 +4,9 @@
     "Vue": true,
     "KNB": true,
     "mta": true,
-    "__ENV__": true
+    "__ENV__": true,
+    "__LOCAL_SERVER__": true,
+    "__VERSION__": true
   },
   "parserOptions": {
     "ecmaVersion": 6

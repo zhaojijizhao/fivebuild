@@ -1,9 +1,29 @@
+## 目录结构
+* dist - 静态资源输出目录(最后输出页面的目录)
+* templates - 各类服务器端模版(入口页面)
+* vendor - 没有通过npm管理的第三方代码
+* src/pages - 真正的页面内容包括html/js/css,一个页面对应一个文件夹
+* src/common - 公共代码
+* src/components - 公共组件(弹窗、提示框之类)
+* src/module - 项目组件(chart组件,公用的页头、页尾)
+* src/partial - 单页应用的分页(路由页面)index.html直接访问
+
+mock 数据在 src/pages/*/mock 文件夹内部
+
+请求地址配置在 src/common/utils.js里
+
+
+
 # fivebuild
 最简化的基于webpack和Vue.js前端脚手架
 
 环境
 
-Node.js 4.x, 更新的版本会有问题, 主要sass编译
+Node.js 4.x, 更新的版本会有问题, 主要sass编译, 用nvm切换node版本
+
+全局安装两个node包
+｀npm install webpack -g｀
+｀npm install node-sass -g｀
 
 支持以下功能
 
@@ -30,13 +50,6 @@ Node.js 4.x, 更新的版本会有问题, 主要sass编译
 
 比如
 * http://localhost:5002/index.html
-
-## 目录结构
-* templates - 各类服务器端模版(入口页面)
-* vendor - 没有通过npm管理的第三方代码
-* src/pages - 真正的页面内容包括html/js/css
-* src/common - 公共代码
-* src/components - 公共组件
 
 ## 发布
 

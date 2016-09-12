@@ -1,0 +1,27 @@
+<div class="bubble__menu">
+  <template v-for="link in data">
+    <a class="bubble__menu-link bubble__menu-link-main"
+      :class="link.color"
+      :style="'left:'+link.left+'%;right:'+link.right+';top:'+link.top+'px;'">
+      {{{link.name}}}
+    </a>
+    <template v-for="secondlink in link.sub">
+      <a v-link="secondlink.state" class="bubble__menu-link bubble__menu-link-second"
+        :class="secondlink.color"
+        :style="'left:'+secondlink.left+'%;right:'+secondlink.right+';top:'+secondlink.top+'px;'">
+        {{{secondlink.name}}}
+      </a>
+      <span class="bubble__menu-line bubble__menu-line-second" :class="secondlink.lineColor"
+        :style="'top:'+secondlink.top+'px;left:'+secondlink.left+'%;height:'+secondlink.lineHeight+'px;-webkit-transform:rotate('+secondlink.lineDeg+'deg);transform:rotate('+secondlink.lineDeg+'deg);'"></span>
+      <template v-for="thirdlink in secondlink.sub">
+        <a v-link="thirdlink.state" class="bubble__menu-link bubble__menu-link-third"
+          :class="thirdlink.color"
+          :style="'left:'+thirdlink.left+'%;right:'+thirdlink.right+';top:'+thirdlink.top+'px;'">
+          {{{thirdlink.name}}}
+        </a>
+        <span class="bubble__menu-line bubble__menu-line-third" :class="thirdlink.lineColor"
+          :style="'top:'+thirdlink.top+'px;left:'+thirdlink.left+'%;height:'+thirdlink.lineHeight+'px;-webkit-transform:rotate('+thirdlink.lineDeg+'deg);transform:rotate('+thirdlink.lineDeg+'deg);'"></span>
+      </template>
+    </template>
+  </template>
+</div>

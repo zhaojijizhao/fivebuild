@@ -16,16 +16,26 @@ window.onunhandledrejection = function (rejection) {
     console.error(rejection.promise);
 };
 
-var reqwest = require('reqwest');
-( _reqwest => {
-  reqwest = ( ...args ) => {
-    return new Promise(function (resolve, reject) {
-      _reqwest( ...args ).then( resolve, reject );
-    });
-  };
-} )( reqwest );
+var api = require('axios').create({
+  baseURL: utils.APIPrefix(),
+  withCredentials: true
+});
+api.interceptors.response.use(function (resp) {
+  if (resp.data.code != null) {
+    if (resp.data.code == 200)
+      return resp.data;
+    else {
+      var error = new Error(resp.data.msg);
+      error.code = resp.data.code;
+      throw error;
+    }
+  } else
+    return resp;
+}, function (e) {
+  throw e;
+});
 
 module.exports = {
-  reqwest: reqwest,
+  api: api,
   utils: utils
 };
