@@ -35,7 +35,15 @@ api.interceptors.response.use(function (resp) {
   throw e;
 });
 
+var color = {
+  blue: "rgb(69,135,239)",
+  yellow: "rgb(248,187,45)",
+  green: "rgb(69,136,40)",
+  red: "rgb(231,68,60)"
+}
+
 module.exports = {
   api: api,
-  utils: utils
+  utils: utils,
+  color: color
 };

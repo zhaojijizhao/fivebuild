@@ -1,0 +1,22 @@
+@import "_var.scss";
+@import "../../common/_common.scss";
+
+.common__box{
+  margin: rem(3) rem(6);
+  background-color: #fff;
+  overflow: hidden;
+  border-radius: rem(6);
+}
+.common__box-head{
+  padding: 0 rem(15);
+  font-size: rem(14);
+  line-height: rem(30);
+  border-bottom: 1px solid #ddd;
+  overflow:hidden;
+}
+.common__box-head-left{
+  float:left;
+}
+.common__box-head-right{
+  float:right;
+}

@@ -1,2 +1,15 @@
-<div class=''>
+<div class="">
+  <search-box :searchinfo.sync="searchinfo" :companylist="companylist"></search-box>
+  <common-box title="房屋建设工程">
+    <bar-chart :data="houseBuild" chartid='marketrank-house-build' ></bar-chart>
+  </common-box>
+  <common-box title="基础设施工程">
+    <bar-chart :data="baseFacility" chartid='marketrank-base-facility' ></bar-chart>
+  </common-box>
+  <common-box title="专业分包工程">
+    <bar-chart :data="professionalDivide" chartid='marketrank-professional-divide' ></bar-chart>
+  </common-box>
+  <common-box title="地产投资">
+    <bar-chart :data="houseInvest" chartid='marketrank-house-invest' ></bar-chart>
+  </common-box>
 </div>

@@ -1,2 +1,12 @@
 <div class="">
+  <search-box :searchinfo.sync="searchinfo" :companylist="companylist"></search-box>
+  <common-box title="按区块划分占比" subtitle="%">
+    <pie-chart :data="byFieldPercentage" chartid='marketrangefield-by-field-percentage' ></pie-chart>
+  </common-box>
+  <common-box title="海外占比分析" subtitle="%">
+    <pie-chart :data="threeBusiness" chartid='marketrangefield-three-business' ></pie-chart>
+  </common-box>
+  <common-box title="项目按行业划分情况图" subtitle="亿">
+    <bar-chart :data="projectByField" chartid='marketrangefield-project-by-field' ></bar-chart>
+  </common-box>
 </div>

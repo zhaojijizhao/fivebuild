@@ -1,9 +1,11 @@
 'use strict';
 
-var {api, utils} = require('@common');
+var {api, utils, color} = require('@common');
 var _ = require('lodash');
 var Toast = require('@component/toast/toast');
 require('@module/barchart/barchart');
+require('@module/commonbox/commonbox');
+require('@module/searchbox/searchbox');
 
 var MarketProgess = Vue.extend({
   template: require('./marketprogress.html'),
@@ -11,7 +13,6 @@ var MarketProgess = Vue.extend({
   data() {
     return {
       allCompany: {
-        legend: true,
         data: []
       },
       contractRank: {
@@ -21,11 +22,13 @@ var MarketProgess = Vue.extend({
         data: []
       },
       colors: {
-        "合同额": "rgb(69,135,239)",
-        "项目个数": "rgb(248,187,45)",
-        "合同额排名": "rgb(69,136,40)",
-        "各公司三级单位": "rgb(231,68,60)"
-      }
+        "合同额": color.blue,
+        "项目个数": color.yellow,
+        "合同额排名": color.green,
+        "各公司三级单位": color.red
+      },
+      searchinfo: {},
+      companylist: ["中国建筑", "asdfasdfa", "safdasdf"]
     }
   },
   methods: {
@@ -47,31 +50,6 @@ var MarketProgess = Vue.extend({
     });
   },
   computed: {
-    // contracts() {
-    //   return this.detailData.map((v, k) => {
-    //     let result = {
-    //       name: v.name,
-    //       data: {
-    //         labels: v.data.map((dv, dk) => dv.name),
-    //         datasets: [{
-    //           label: v.name,
-    //           backgroundColor: v.data.map((dv, dk) => {
-    //             if (dv.value >= 90) {
-    //               return "rgb(6,147,32)";
-    //             } else if (dv.value >= 80) {
-    //               return "rgb(242,177,14)";
-    //             } else {
-    //               return "rgb(215,27,22)";
-    //             }
-    //           }),
-    //           data: v.data.map((dv, dk) => dv.value)
-    //         }]
-    //       }
-    //     };
-    //     return result;
-
-    //   });
-    // }
   }
 });
 

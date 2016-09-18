@@ -1,5 +1,8 @@
 'use strict';
 var echarts = require('echarts');
+var {color} = require('@common');
+var _ = require('lodash');
+require('./barchart.scss');
 
 var BarChart = Vue.component('bar-chart', {
   template: require('./barchart.html'),
@@ -36,7 +39,7 @@ var BarChart = Vue.component('bar-chart', {
           }
         },
         yAxis: {
-          interval: 20,
+          interval: 10,
           axisLine: {
             show: false
           },
@@ -45,34 +48,10 @@ var BarChart = Vue.component('bar-chart', {
           },
           axisLabel: {
             show: false
-            // textStyle: {
-            //   color: function(val) {
-            //     if (val == 20 || val == 80) {
-            //       return '#999';
-            //     } else {
-            //       return 'transparent';
-            //     }
-            //   }
-            // },
-            // formatter: function(value,  index) {
-            //   return value + "%"
-            // }
           },
           splitLine: {
             lineStyle: {
               color: 'transparent',
-              // color: [
-              //   'transparent',
-              //   'rgb(226, 212, 8)',
-              //   'transparent',
-              //   'transparent',
-              //   'rgb(83, 181, 108)',
-              //   'transparent',
-              //   'transparent',
-              //   'transparent',
-              //   'transparent',
-              //   'transparent',
-              //   'transparent'],
               type: 'dash'
             }
           }
@@ -106,8 +85,7 @@ var BarChart = Vue.component('bar-chart', {
           this.option.legend.data = this.data.data.map((v, k) => {
             return {
               name: v.name,
-              icon: 'circle',
-
+              icon: 'circle'
             }
           });
         }
@@ -121,6 +99,52 @@ var BarChart = Vue.component('bar-chart', {
             return v.name;
           }
         });
+
+        //yAxis
+        if (this.data.data[0].line) {
+          let linelist = this.data.data[0].line;
+          this.option.yAxis.axisLabel = {
+            show: true,
+            textStyle: {
+              color: function(val) {
+                let result = 'transparent';
+                linelist.forEach((v, k) => {
+                  if (v.value == val) {
+                    result = '#999';
+                  }
+                });
+                return result;
+              }
+            },
+            formatter: function(value,  index) {
+              return value + "%"
+            }
+          };
+          this.option.yAxis.splitLine.lineStyle.color =
+          _.range(0, 200, 10).map((v, k) => {
+            let result = 'transparent';
+            linelist.forEach((linev, linek) => {
+              if (linev.value == v) {
+                result = linev.color;
+              }
+            });
+            return result;
+          });
+          let bascicolor = this.data.data[0].color;
+          this.data.data[0].data.forEach((v, k) => {
+            let itemcolor = bascicolor;
+            linelist.forEach((linev, linek) => {
+              if (v.value <= linev.value) {
+                itemcolor = linev.color;
+              }
+            });
+            v.itemStyle = {
+              normal: {
+                color: itemcolor
+              }
+            }
+          });
+        }
 
         //series
         this.option.series = [];

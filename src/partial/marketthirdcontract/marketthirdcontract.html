@@ -1,6 +1,14 @@
-<div>
-  
+<div class="">
+  <search-box :searchinfo.sync="searchinfo" :companylist="companylist"></search-box>
+  <common-box title="总包单位合同额排名" subtitle="亿">
+    <bar-chart :data="allCompany" chartid='marketthirdcontract-all-company' ></bar-chart>
+  </common-box>
+  <common-box title="合同额排名" subtitle="亿">
+    <bar-chart :data="professionalCompanyContract" chartid='marketthirdcontract-professional-company-contract' ></bar-chart>
+  </common-box>
+  <common-box title="各公司三级单位" subtitle="亿">
+    <bar-chart :data="thirdCompany" chartid='marketthirdcontract-third-company' ></bar-chart>
+  </common-box>
 </div>
-
 
 

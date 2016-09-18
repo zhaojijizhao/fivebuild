@@ -1,0 +1,22 @@
+@import "_var.scss";
+@import "../../common/_common.scss";
+
+::-webkit-inner-spin-button {
+  visibility: hidden;
+}
+select,input{
+  appearance: none;
+  border:none;
+}
+.search__box-label{
+  position:relative;
+  display: flex;
+  padding: rem(15);
+  line-height: rem(24);
+  &:not(:last-child){
+    border-bottom: 1px solid #eee;
+  }
+  span{
+    flex: 1;
+  }
+}

@@ -1,0 +1,12 @@
+<common-box>
+  <label @click="focus('company')" class="search__box-label" >
+    {{searchinfo.company||"安装公司"}}
+  </label>
+  <label class="search__box-label">
+    <span @click="focus('year')">{{searchinfo.year}}年</span>
+    <span @click="focus('month')">{{searchinfo.month}}月</span>
+  </label>
+  <pop :show.sync="companyshow" :list="companylist" :name.sync="searchinfo.company"></pop>
+  <pop :show.sync="yearshow" :list="yearlist" :name.sync="searchinfo.year"></pop>
+  <pop :show.sync="monthshow" :list="monthlist" :name.sync="searchinfo.month"></pop>
+</common-box>

@@ -1,2 +1,9 @@
 <div class="">
+  <search-box :searchinfo.sync="searchinfo" :companylist="companylist"></search-box>
+  <common-box title="按区块划分占比" subtitle="%">
+    <ring-chart :data="byAreaPercentage" chartid='marketrange-by-area-percentage' ></ring-chart>
+  </common-box>
+  <common-box title="海外占比分析" subtitle="%">
+    <ring-chart :data="overseasPercentage" chartid='marketrange-overseas-percentage' ></ring-chart>
+  </common-box>
 </div>

@@ -1,5 +1,12 @@
 <div class="">
-  <bar-chart :data="allCompany" chartid='marketprogress-all-company' ></bar-chart>
-  <bar-chart :data="contractRank" chartid='marketprogress-contract-rank' ></bar-chart>
-  <bar-chart :data="thirdCompany" chartid='marketprogress-third-company' ></bar-chart>
+  <search-box :searchinfo.sync="searchinfo" :companylist="companylist"></search-box>
+  <common-box title="总包单位合同额排名" subtitle="亿">
+    <bar-chart :data="allCompany" chartid='marketprogress-all-company' ></bar-chart>
+  </common-box>
+  <common-box title="合同额排名" subtitle="亿">
+    <bar-chart :data="contractRank" chartid='marketprogress-contract-rank' ></bar-chart>
+  </common-box>
+  <common-box title="各公司三级单位" subtitle="亿">
+    <bar-chart :data="thirdCompany" chartid='marketprogress-third-company' ></bar-chart>
+  </common-box>
 </div>

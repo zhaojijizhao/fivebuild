@@ -206,7 +206,7 @@ var RootComponent = Vue.extend({
             }
           }
         }
-      ], 
+      ],
       legend: {
         x: 'center', 
         y: 'bottom', 

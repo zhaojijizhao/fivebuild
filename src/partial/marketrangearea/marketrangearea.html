@@ -1,2 +1,10 @@
-<div>
+<div class="">
+  <search-box :searchinfo.sync="searchinfo" :companylist="companylist"></search-box>
+  <common-box title="中建五局合同额占比示意图">
+    <map-chart :data="byFieldPercentage" chartid='marketrangefield-by-field-percentage' ></map-chart>
+  </common-box>
+  <common-box title="按省份划分占比（％）">
+    <bar-chart :data="threeBusiness" chartid='marketrangefield-three-business' ></bar-chart>
+    <bar-chart :data="threeBusiness" chartid='marketrangefield-three-business' ></bar-chart>
+  </common-box>
 </div>
