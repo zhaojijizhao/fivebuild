@@ -50,7 +50,7 @@ router.map({
     component: Layout,
     subRoutes: {
       '/market': {
-        component: Market,//市场营销
+        component: Market, //市场营销
         subRoutes: {
           '/menu': {
             component: MarketMenu//泡泡图
@@ -79,7 +79,7 @@ router.map({
         }
       },
       '/product': {
-        component: Product,//生产技术
+        component: Product, //生产技术
         subRoutes: {
           '/menu': {
             component: ProductMenu//泡泡图
