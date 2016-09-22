@@ -28,6 +28,16 @@ var ProductStop = require('@partial/productstop/productstop');
 var ProductCompare = require('@partial/productcompare/productcompare');
 var ProductCompareArea = require('@partial/productcomparearea/productcomparearea');
 var ProductCompareProject = require('@partial/productcompareproject/productcompareproject');
+//财务管理
+var Finance = require('@partial/finance/finance');
+var FinanceMenu = require('@partial/financemenu/financemenu');
+var FinanceMainTarget = require('@partial/financemaintarget/financemaintarget');
+var FinancePartIncome = require('@partial/financepartincome/financepartincome');
+var FinanceThirdRank = require('@partial/financethirdrank/financethirdrank');
+var FinanceTwoPriceAnalyse = require('@partial/financetwopriceanalyse/financetwopriceanalyse');
+var FinanceDeserveAmountAnalyse = require('@partial/financedeserveamountanalyse/financedeserveamountanalyse');
+var FinanceCompanyMainTarget = require('@partial/financecompanymaintarget/financecompanymaintarget');
+var FinanceCompanyIncreaseCompare = require('@partial/financecompanyincreasecompare/financecompanyincreasecompare');
 
 Vue.use(VueRouter);
 
@@ -110,6 +120,35 @@ router.map({
           },
           '/compareproject': {
             component: ProductCompareProject//年累产值分析（工程）
+          }
+        }
+      },
+      '/finance': {
+        component: Finance, //财务管理
+        subRoutes: {
+          '/menu': {
+            component: FinanceMenu//泡泡图
+          },
+          '/financemaintarget': {
+            component: FinanceMainTarget//中建各工程局主要指标情况
+          },
+          '/financepartincome': {
+            component: FinancePartIncome//局三级单位主要指标排名前十
+          },
+          '/financethirdrank': {
+            component: FinanceThirdRank//局各板块营业收入情况
+          },
+          '/financetwopriceanalyse': {
+            component: FinanceTwoPriceAnalyse//财务两金情况分析
+          },
+          '/financedeserveamountanalyse': {
+            component: FinanceDeserveAmountAnalyse//财务应收款项分析
+          },
+          '/financecompanymaintarget': {
+            component: FinanceCompanyMainTarget//各公司主要指标预算完成情况
+          },
+          '/financecompanyincreasecompare': {
+            component: FinanceCompanyIncreaseCompare//各公司主要指标同比增长情况
           }
         }
       }
