@@ -39,6 +39,10 @@ a{
       padding: rem(30) 0;
       font-size: rem(12);
       line-height: rem(20);
+      &.dbl{
+        padding: rem(24) 0;
+        line-height: rem(16);
+      }
     }
   }
   .bubble__menu-line{
@@ -68,5 +72,35 @@ a{
   }
   .green{
     background-color: rgb(69,136,40);
+  }
+}
+
+@mixin max-screen($res){
+  @media only screen and ( max-width: $res )
+  {
+    @content;
+  }
+}
+
+@include max-screen(400px) {
+  .bubble__menu{
+    .bubble__menu-link{
+      &.bubble__menu-link-main{
+        margin: rem(-55) 0 0 rem(-55);
+        width: rem(110);
+        height: rem(110);
+        padding: rem(35) 0;
+      }
+      &.bubble__menu-link-second{
+        margin: rem(-45) 0 0 rem(-45);
+        width: rem(90);
+        height: rem(90);
+        padding: rem(30) 0;
+        font-size: rem(12);
+        line-height: rem(15);
+      }
+      &.bubble__menu-link-third{
+      }
+    }
   }
 }

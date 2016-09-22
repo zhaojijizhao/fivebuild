@@ -24,7 +24,7 @@ var MarketMenu = Vue.extend({
               name: '中建各工程<br/>完成情况',
               lineColor: 'red',
               lineHeight: '150',
-              lineDeg: '30'
+              lineDeg: '26'
             },
             {
               left: '40',
@@ -34,7 +34,7 @@ var MarketMenu = Vue.extend({
               name: '二级单位<br/>合同额分析',
               lineColor: 'green',
               lineHeight: '160',
-              lineDeg: '-30'
+              lineDeg: '-25'
             },
             {
               left: '78',
@@ -44,7 +44,7 @@ var MarketMenu = Vue.extend({
               name: '三级单位<br/>合同额分析',
               lineColor: 'yellow',
               lineHeight: '120',
-              lineDeg: '150'
+              lineDeg: '155'
             },
             {
               left: '18',
@@ -64,7 +64,7 @@ var MarketMenu = Vue.extend({
               name: '二级单位<br/>分类分析',
               lineColor: 'green',
               lineHeight: '140',
-              lineDeg: '-135',
+              lineDeg: '-140',
               sub: [
                 {
                   left: '15',
