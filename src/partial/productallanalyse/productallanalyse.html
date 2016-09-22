@@ -1,2 +1,12 @@
-<div>
+<div class="">
+  <search-box :searchinfo.sync="searchinfo" :companylist="companylist"></search-box>
+  <common-box title="产值情况"  subtitle="亿">
+    <bar-chart :data="productInfo" chartid='productallanalyse-product-info' ></bar-chart>
+  </common-box>
+  <common-box title="项目情况" subtitle="个">
+    <bar-chart :data="projectInfo" chartid='productallanalyse-project-info' ></bar-chart>
+  </common-box>
+  <common-box title="逐月产值完成情况" subtitle="亿">
+    <bar-chart :data="stepMonth" chartid='productallanalyse-step-month' ></bar-chart>
+  </common-box>
 </div>

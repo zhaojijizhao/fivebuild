@@ -141,10 +141,11 @@ var MapChart = Vue.component('map-chart', {
     setchart() {
       if (this.data && this.data.data && this.data.data.length > 0) {
         //series
-        this.option.series = [];
-        this.data.data[0].data.sort(function (a, b) { return a.value - b.value});
-        this.data.data[0].data.forEach((v, k) => {
-          this.option.series.data.push({
+        this.option.series[0].data = [];
+        var data = _.clone(this.data.data[0].data);
+        data.sort(function (a, b) { return a.value - b.value});
+        data.forEach((v, k) => {
+          this.option.series[0].data.push({
             value: v.value,
             name: v.name,
             itemStyle: {

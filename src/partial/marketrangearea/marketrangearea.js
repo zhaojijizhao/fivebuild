@@ -50,6 +50,24 @@ var MarketRangeArea = Vue.extend({
         Toast.show("获取信息失败");
       });
     }
+  },
+  ready() {
+    var _this = this;
+    api.post('/api/market/rangearea').then(function (resp) {
+      // _.each(resp.data, (content, type) => {
+      //   content.forEach((v, k) => {
+      //     if (v.name == "项目按行业划分情况图") {
+      //       v.color = _this.colors[v.name];
+      //     }
+      //   });
+      // });
+      _this.mapPercentage.data = resp.data.mapPercentage;
+      _this.provinceRankTop.data = resp.data.provinceRankTop;
+      _this.provinceRankBottom.data = resp.data.provinceRankBottom;
+    }).catch(function (e) {
+      console.error(e);
+      Toast.show("获取信息失败");
+    });
   }
 });
 

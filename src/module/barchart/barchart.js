@@ -103,8 +103,9 @@ var BarChart = Vue.component('bar-chart', {
         //yAxis
         if (this.data.data[0].line) {
           let linelist = this.data.data[0].line;
+          let showline = this.data.data[0].showline;
           this.option.yAxis.axisLabel = {
-            show: true,
+            show: showline,
             textStyle: {
               color: function(val) {
                 let result = 'transparent';
@@ -120,16 +121,20 @@ var BarChart = Vue.component('bar-chart', {
               return value + "%"
             }
           };
-          this.option.yAxis.splitLine.lineStyle.color =
-          _.range(0, 200, 10).map((v, k) => {
-            let result = 'transparent';
-            linelist.forEach((linev, linek) => {
-              if (linev.value == v) {
-                result = linev.color;
-              }
+
+          if (showline) {
+            this.option.yAxis.splitLine.lineStyle.color =
+            _.range(0, 200, 10).map((v, k) => {
+              let result = 'transparent';
+              linelist.forEach((linev, linek) => {
+                if (linev.value == v) {
+                  result = linev.color;
+                }
+              });
+              return result;
             });
-            return result;
-          });
+          }
+
           let bascicolor = this.data.data[0].color;
           this.data.data[0].data.forEach((v, k) => {
             let itemcolor = bascicolor;

@@ -1,0 +1,12 @@
+<div class="">
+  <search-box :searchinfo.sync="searchinfo" :companylist="companylist"></search-box>
+  <common-box title="本月营业额排名" subtitle="亿">
+    <bar-chart :data="monthSale" chartid='productsales-month－sale' ></bar-chart>
+  </common-box>
+  <common-box title="年累营业额排名" subtitle="亿">
+    <bar-chart :data="yearSales" chartid='productsales-year-sales' ></bar-chart>
+  </common-box>
+  <common-box title="营业额同类排名" subtitle="％">
+    <bar-chart :data="salesCompare" chartid='productsales-sales-compare' ></bar-chart>
+  </common-box>
+</div>

@@ -1,2 +1,6 @@
-<div>
+<div class="">
+  <search-box :searchinfo.sync="searchinfo" :companylist="companylist"></search-box>
+  <common-box title="年累分区域产值情况"  subtitle="亿">
+    <bar-chart :data="compare" chartid='productcompare-compare' ></bar-chart>
+  </common-box>
 </div>

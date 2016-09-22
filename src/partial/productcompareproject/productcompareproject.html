@@ -1,2 +1,9 @@
-<div>
+<div class="">
+  <search-box :searchinfo.sync="searchinfo" :companylist="companylist"></search-box>
+  <common-box title="年累分工程类对比情况"  subtitle="%">
+    <pie-chart :data="allTypeProject" chartid='productcompareproject-all-type-project' ></pie-chart>
+  </common-box>
+  <common-box title="按行业各单位产值分布情况图" subtitle="亿">
+    <bar-chart :data="allFieldOutputProject" chartid='productcompareproject-all-field-output-project' ></bar-chart>
+  </common-box>
 </div>

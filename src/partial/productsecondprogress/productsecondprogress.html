@@ -1,2 +1,6 @@
-<div>
+<div class="">
+  <search-box :searchinfo.sync="searchinfo" :companylist="companylist"></search-box>
+  <common-box title="二级单位产值完成预警分析" subtitle="％">
+    <bar-chart :data="secondProgress" chartid='productsecondprogress-second-progress' ></bar-chart>
+  </common-box>
 </div>
