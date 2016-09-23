@@ -1,0 +1,16 @@
+<div class="">
+  <search-box :searchinfo.sync="searchinfo" :companylist="companylist"></search-box>
+  <common-box title="学历分析">
+    <ring-chart :data="education" chartid='hrteam-education' ></ring-chart>
+  </common-box>
+  <common-box title="用工性质，性别分析">
+    <pie-chart :data="type" chartid='hrteam-type' ></pie-chart>
+    <pie-chart :data="gender" chartid='hrteam-gender' ></pie-chart>
+  </common-box>
+  <common-box title="年龄构成分析">
+    <pie-chart :data="age" chartid='hrteam-age' ></pie-chart>
+  </common-box>
+  <common-box title="工龄信息分析" subtitle="人">
+    <bar-chart :data="workage" chartid='hrteam-workage' ></bar-chart>
+  </common-box>
+</div>

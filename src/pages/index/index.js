@@ -38,6 +38,16 @@ var FinanceTwoPriceAnalyse = require('@partial/financetwopriceanalyse/financetwo
 var FinanceDeserveAmountAnalyse = require('@partial/financedeserveamountanalyse/financedeserveamountanalyse');
 var FinanceCompanyMainTarget = require('@partial/financecompanymaintarget/financecompanymaintarget');
 var FinanceCompanyIncreaseCompare = require('@partial/financecompanyincreasecompare/financecompanyincreasecompare');
+//人力资源
+var Hr = require('@partial/hr/hr');
+var HrTeam = require('@partial/hrteam/hrteam');
+//项目营运
+var Operate = require('@partial/operate/operate');
+var OperateOperation = require('@partial/operateoperation/operateoperation');
+var OperateFourusage = require('@partial/operatefourusage/operatefourusage');
+//主要指标
+var Main = require('@partial/main/main');
+var MainTarget = require('@partial/maintarget/maintarget');
 
 Vue.use(VueRouter);
 
@@ -151,13 +161,40 @@ router.map({
             component: FinanceCompanyIncreaseCompare//各公司主要指标同比增长情况
           }
         }
+      },
+      '/hr': {
+        component: Hr, //人力资源
+        subRoutes: {
+          '/team': {
+            component: HrTeam//员工队伍结构分析
+          }
+        }
+      },
+      '/operate': {
+        component: Operate, //项目营运
+        subRoutes: {
+          '/operation': {
+            component: OperateOperation//项目运营
+          },
+          '/fourusage': {
+            component: OperateFourusage//一单四用
+          }
+        }
+      },
+      '/main': {
+        component: Main, //主要指标
+        subRoutes: {
+          '/target': {
+            component: MainTarget//主要指标
+          }
+        }
       }
     }
   }
 });
 
 router.redirect({
-  '*': '/index/market/menu'
+  '*': '/index/main/target'
 })
 
 router.start(RootComponent, '#app');

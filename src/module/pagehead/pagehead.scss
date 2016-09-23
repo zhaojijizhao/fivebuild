@@ -1,0 +1,19 @@
+@import "_var.scss";
+@import "../../common/_common.scss";
+
+li{
+  list-style-type: none;
+}
+.page__head-nav{
+  padding: 0;
+  margin: 0;
+  width:100%;
+  overflow-x:auto;
+  white-space: nowrap;
+  li{
+    display:inline-block;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+  }
+}

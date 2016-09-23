@@ -1,10 +1,5 @@
 <header>
-  <!-- <nav id="nav" role="navigation" style="
-    padding: 200px 0 0 0;">
-    <ul class="sitenav depth_1">
-      <li v-for="(index,nav) in navs" :class="{last:index==navs.length-1,first:index==0}" >
-        <a v-link="nav.link" >{{nav.name}}</a>
-      </li>
-    </ul>
-  </nav> -->
+  <ul class="page__head-nav">
+    <li v-for="nav in navs" v-link="nav.link">{{nav.name}}</li>
+  </ul>
 </header>

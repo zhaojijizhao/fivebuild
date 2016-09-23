@@ -1,0 +1,18 @@
+<div class="">
+  <search-box :searchinfo.sync="searchinfo" :companylist="companylist"></search-box>
+  <common-box title="财务指标分析" >
+    <pie-chart :data="finance" chartid='maintarget-finance' ></pie-chart>
+  </common-box>
+  <common-box title="业务分析(亿)" >
+    <bar-chart :data="business" chartid='maintarget-business' ></bar-chart>
+  </common-box>
+  <common-box title="投资指标(%)" >
+    <bar-chart :data="invest" chartid='maintarget-invest' ></bar-chart>
+  </common-box>
+  <common-box title="五年趋势(亿)" ">
+    <pie-chart :data="fiveyearsmoney" chartid='maintarget-fiveyearsmoney' ></pie-chart>
+  </common-box>
+  <common-box title="五年趋势(%)" ">
+    <pie-chart :data="fiveyearspercentage" chartid='maintarget-fiveyearspercentage' ></pie-chart>
+  </common-box>
+</div>
