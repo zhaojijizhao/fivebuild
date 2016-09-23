@@ -39,7 +39,8 @@ var color = {
   blue: "rgb(69,135,239)",
   yellow: "rgb(248,187,45)",
   green: "rgb(69,136,40)",
-  red: "rgb(231,68,60)"
+  red: "rgb(231,68,60)",
+  dark: "#666"
 }
 
 module.exports = {

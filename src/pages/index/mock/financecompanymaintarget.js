@@ -2,9 +2,9 @@ module.exports = {
   method: 'POST',
   path: '/api/finance/companymaintarget',
   response: {
-    "allCompany": [
+    "budget": [
       {
-        "name": "合同额",
+        "name": "各单位累计营业收入预算指标完成情况排名",
         "data": [
           {
             "name": "总承包公司",
@@ -78,9 +78,9 @@ module.exports = {
         ]
       }
     ],
-    "contractRank": [
+    "finish": [
       {
-        "name": "合同额排名",
+        "name": "各单位累计利润预算完成情况排名",
         "data": [
           {
             "name": "总承包公司",
@@ -117,9 +117,9 @@ module.exports = {
         ]
       }
     ],
-    "thirdCompany": [
+    "cash": [
       {
-        "name": "各公司三级单位",
+        "name": "各单位累计现金流预算指标完成情况排名",
         "data": [
           {
             "name": "总承包公司",

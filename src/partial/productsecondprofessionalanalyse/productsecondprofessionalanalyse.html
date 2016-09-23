@@ -1,2 +1,15 @@
-<div>
+<div class="">
+  <search-box :searchinfo.sync="searchinfo" :companylist="companylist"></search-box>
+  <common-box title="两个以基础设施为主公司生产完成情况" subtitle="％">
+    <bar-chart :data="basicInfo" chartid='productsecondprogress-basic-info' ></bar-chart>
+  </common-box>
+  <common-box title="三个专业公司生产完成情况" subtitle="％">
+    <bar-chart :data="threeProfession" chartid='productsecondprogress-three-profession' ></bar-chart>
+  </common-box>
+  <common-box title="海外公司完成情况" subtitle="％">
+    <bar-chart :data="overseasCompany" chartid='productsecondprogress-overseas-company' ></bar-chart>
+  </common-box>
+  <common-box title="二级单位产值完成预警分析" subtitle="％">
+    <bar-chart :data="secondProgress" chartid='productsecondprogress-second-progress' ></bar-chart>
+  </common-box>
 </div>

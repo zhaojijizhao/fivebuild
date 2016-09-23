@@ -1,2 +1,9 @@
-<div>
+<div class="">
+  <search-box :searchinfo.sync="searchinfo" :companylist="companylist"></search-box>
+  <common-box title="各省年累产值分布图" >
+    <map-chart :data="byMap" chartid='productcomparearea-by-map' ></map-chart>
+  </common-box>
+  <common-box title="年累分区域对比情况" subtitle="%">
+    <pie-chart :data="byYear" chartid='productcomparearea-by-year' ></pie-chart>
+  </common-box>
 </div>

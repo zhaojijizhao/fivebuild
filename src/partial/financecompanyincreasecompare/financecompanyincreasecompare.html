@@ -1,0 +1,12 @@
+<div class="">
+  <search-box :searchinfo.sync="searchinfo" :companylist="companylist"></search-box>
+  <common-box title="营业收入同期增长排名" subtitle="%">
+    <bar-chart :data="sales" chartid='financecompanyincreasecompare-sales' ></bar-chart>
+  </common-box>
+  <common-box title="利润总额同比增长排名" subtitle="%">
+    <bar-chart :data="income" chartid='financecompanyincreasecompare-income' ></bar-chart>
+  </common-box>
+  <common-box title="经营活动现金流量净额同比增额排名" subtitle="亿">
+    <bar-chart :data="cash" chartid='financecompanyincreasecompare-cash' ></bar-chart>
+  </common-box>
+</div>

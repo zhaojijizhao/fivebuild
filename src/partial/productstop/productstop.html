@@ -1,2 +1,6 @@
-<div>
+<div class="">
+  <search-box :searchinfo.sync="searchinfo" :companylist="companylist"></search-box>
+  <common-box title="停工缓建项目个数统计" subtitle="个">
+    <bar-chart :data="stop" chartid='productstop-stop' ></bar-chart>
+  </common-box>
 </div>

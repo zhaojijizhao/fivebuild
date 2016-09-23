@@ -12,11 +12,27 @@ var ProductSecondProgress = Vue.extend({
 
   data() {
     return {
-      secondProgress: {
+      monthRank: {
+        data: []
+      },
+      yearRank: {
+        data: []
+      },
+      yearCompare: {
+        data: []
+      },
+      yearTarget: {
+        data: []
+      },
+      personTarget: {
         data: []
       },
       colors: {
-        "二级单位产值完成预警分析": color.green
+        "本月产值排名": color.red,
+        "年累产值排名": color.green,
+        "年累产值同比情况": color.yellow,
+        "年目标完成情况": color.blue,
+        "各单位人均完成值": color.dark
       },
       searchinfo: {},
       companylist: ["中国建筑", "asdfasdfa", "safdasdf"]
@@ -33,7 +49,11 @@ var ProductSecondProgress = Vue.extend({
           v.showline = false;
         });
       });
-      _this.secondProgress.data = resp.data.secondProgress;
+      _this.monthRank.data = resp.data.monthRank;
+      _this.yearRank.data = resp.data.yearRank;
+      _this.yearCompare.data = resp.data.yearCompare;
+      _this.yearTarget.data = resp.data.yearTarget;
+      _this.personTarget.data = resp.data.personTarget;
     }).catch(function (e) {
       console.error(e);
       Toast.show("获取信息失败");

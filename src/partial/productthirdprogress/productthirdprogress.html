@@ -1,2 +1,9 @@
-<div>
+<div class="">
+  <search-box :searchinfo.sync="searchinfo" :companylist="companylist"></search-box>
+  <common-box title="三局单位年累产值前十排名" subtitle="亿">
+    <bar-chart :data="topTen" chartid='productthirdprogress-top-ten' ></bar-chart>
+  </common-box>
+  <common-box title="三局单位年累产值后五排名" subtitle="亿">
+    <bar-chart :data="lastFive" chartid='productthirdprogress-last-five' ></bar-chart>
+  </common-box>
 </div>

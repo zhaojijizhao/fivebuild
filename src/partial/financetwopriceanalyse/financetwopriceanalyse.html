@@ -1,0 +1,21 @@
+<div class="">
+  <search-box :searchinfo.sync="searchinfo" :companylist="companylist"></search-box>
+  <common-box title="全局两金三项占比分析" subtitle="%">
+    <pie-chart :data="twoPricePercentage" chartid='financetwopriceanalyse-two-price-percentage' ></pie-chart>
+  </common-box>
+  <common-box title="全局两金构成分析" subtitle="亿">
+    <pie-chart :data="twoPriceCompose" chartid='financetwopriceanalyse-two-price-compose' ></pie-chart>
+  </common-box>
+  <common-box title="欠款情况分类分析" subtitle="亿">
+    <pie-chart :data="twoPriceDebate" chartid='financetwopriceanalyse-two-price-debate' ></pie-chart>
+  </common-box>
+  <common-box title="各单位两金预算指标完成率排名" subtitle="%">
+    <bar-chart :data="twoPriceFinish" chartid='financetwopriceanalyse-two-price-finish' ></bar-chart>
+  </common-box>
+  <common-box title="各单位两金情况排名" subtitle="亿">
+    <bar-chart :data="twoPriceRank" chartid='financetwopriceanalyse-two-price-rank' ></bar-chart>
+  </common-box>
+  <common-box title="各单位两金比年初增长率排名" subtitle="%">
+    <bar-chart :data="twoPriceRate" chartid='financetwopriceanalyse-two-price-rate' ></bar-chart>
+  </common-box>
+</div>
