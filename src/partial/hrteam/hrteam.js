@@ -19,6 +19,9 @@ var HrTeam = Vue.extend({
       type: {
         data: []
       },
+      gender: {
+        data: []
+      },
       age: {
         data: []
       },
@@ -48,6 +51,7 @@ var HrTeam = Vue.extend({
       });
       _this.education.data = resp.data.education;
       _this.type.data = resp.data.type;
+      _this.gender.data = resp.data.gender;
       _this.age.data = resp.data.age;
       _this.workage.data = resp.data.workage;
     }).catch(function (e) {

@@ -1,0 +1,12 @@
+<div class="">
+  <search-box :searchinfo.sync="searchinfo" :companylist="companylist"></search-box>
+  <common-box title="营业收入排名" subtitle="亿">
+    <bar-chart :data="sales" chartid='financemaintarget-sales' ></bar-chart>
+  </common-box>
+  <common-box title="净利润排名" subtitle="亿">
+    <bar-chart :data="income" chartid='financemaintarget-income' ></bar-chart>
+  </common-box>
+  <common-box title="经营性现金流排名" subtitle="亿">
+    <bar-chart :data="cash" chartid='financemaintarget-cash' ></bar-chart>
+  </common-box>
+</div>

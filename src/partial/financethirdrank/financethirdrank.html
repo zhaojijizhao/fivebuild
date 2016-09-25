@@ -1,0 +1,9 @@
+<div class="">
+  <search-box :searchinfo.sync="searchinfo" :companylist="companylist"></search-box>
+  <common-box title="三级单位营业收入排名（本年累计）" subtitle="亿">
+    <bar-chart :data="rank" chartid='financethirdrank-rank' ></bar-chart>
+  </common-box>
+  <common-box title="同比增长" subtitle="%">
+    <bar-chart :data="compare" chartid='financethirdrank-compare' ></bar-chart>
+  </common-box>
+</div>
