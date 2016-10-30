@@ -1,0 +1,10 @@
+<div>
+  <div class="pins">
+    <span v-for="pin in pins">
+      <i :style="{backgroundColor:pin.color}"></i>{{pin.name}}年
+    </span>
+  </div>
+  <div class="line-chart">
+    <div class="linechart" :id="chartid" style="width:200%;height:300px;"></div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+@import "_var.scss";
+@import "../../common/_common.scss";
+
+.line-chart{
+  overflow-x:auto;
+  overflow-y:hidden;
+}
+.linechart{
+  margin-top: rem(-60);
+  padding: rem(10) 0 rem(15) 0;
+}
+.pins{
+  padding: rem(20) rem(30);
+  span{
+    line-height: rem(20);
+    vertical-align: top;
+    display: inline-block;
+    width: 50%;
+    text-align: center;
+    i{
+      margin-right: rem(5);
+      display:inline-block;
+      width: rem(20);
+      height: rem(20);
+      border-radius: rem(20);
+      vertical-align: top;
+    }
+  }
+}

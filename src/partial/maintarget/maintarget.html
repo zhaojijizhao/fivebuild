@@ -1,18 +1,30 @@
 <div class="">
   <search-box :searchinfo.sync="searchinfo" :companylist="companylist"></search-box>
-  <common-box title="财务指标分析" >
-    <pie-chart :data="finance" chartid='maintarget-finance' ></pie-chart>
+  <common-box title="" >
+    <bar-chart :data="bar1" chartid='maintarget-bar1' ></bar-chart>
   </common-box>
-  <common-box title="业务分析(亿)" >
-    <bar-chart :data="business" chartid='maintarget-business' ></bar-chart>
+  <common-box title="" >
+    <bar-chart :data="bar2" chartid='maintarget-bar2' ></bar-chart>
   </common-box>
-  <common-box title="投资指标(%)" >
-    <bar-chart :data="invest" chartid='maintarget-invest' ></bar-chart>
+  <common-box title="" >
+    <bar-chart :data="bar3" chartid='maintarget-bar3' ></bar-chart>
   </common-box>
-  <common-box title="五年趋势(亿)" ">
-    <pie-chart :data="fiveyearsmoney" chartid='maintarget-fiveyearsmoney' ></pie-chart>
+  <common-box title="两年同比趋势折线图-合同额" >
+    <line-chart :data="contract" chartid='maintarget-contract' ></line-chart>
   </common-box>
-  <common-box title="五年趋势(%)" ">
-    <pie-chart :data="fiveyearspercentage" chartid='maintarget-fiveyearspercentage' ></pie-chart>
+  <common-box title="两年同比趋势折线图-营业额" >
+    <line-chart :data="account" chartid='maintarget-account' ></line-chart>
+  </common-box>
+  <common-box title="两年同比趋势折线图-经营性现金净流" >
+    <line-chart :data="cash" chartid='maintarget-cash' ></line-chart>
+  </common-box>
+  <common-box title="两年同比趋势折线图-利润总额" >
+    <line-chart :data="income" chartid='maintarget-income' ></line-chart>
+  </common-box>
+  <common-box title="两年同比趋势折线图-投资额" >
+    <line-chart :data="invest" chartid='maintarget-invest' ></line-chart>
+  </common-box>
+  <common-box title="两年同比趋势折线图-投资回款" >
+    <line-chart :data="payback" chartid='maintarget-payback' ></line-chart>
   </common-box>
 </div>

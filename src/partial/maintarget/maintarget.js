@@ -5,6 +5,7 @@ var _ = require('lodash');
 var Toast = require('@component/toast/toast');
 require('@module/barchart/barchart');
 require('@module/piechart/piechart');
+require('@module/linechart/linechart');
 require('@module/commonbox/commonbox');
 require('@module/searchbox/searchbox');
 
@@ -13,47 +14,113 @@ var MainTarget = Vue.extend({
 
   data() {
     return {
-      finance: {
+      contract: {
         data: []
       },
-      business: {
+      account: {
+        data: []
+      },
+      cash: {
+        data: []
+      },
+      income: {
         data: []
       },
       invest: {
         data: []
       },
-      fiveyearsmoney: {
+      payback: {
         data: []
       },
-      fiveyearspercentage: {
+      bar1: {
+        data: []
+      },
+      bar2: {
+        data: []
+      },
+      bar3: {
         data: []
       },
       colors: {
-        "财务指标分析": color.blue,
-        "业务分析(亿)": color.yellow,
-        "投资指标(%)": color.green,
-        "五年趋势(亿)": color.red,
-        "五年趋势(%)": color.red
+        "合同额今年": color.blue,
+        "合同额去年": color.green,
+        "营业额今年": color.yellow,
+        "营业额去年": color.green,
+        "经营性现金净流今年": color.blue,
+        "经营性现金净流去年": color.yellow,
+        "利润总额今年": color.blue,
+        "利润总额去年": color.green,
+        "投资额今年": color.yellow,
+        "投资额去年": color.green,
+        "投资回款今年": color.blue,
+        "投资回款去年": color.yellow,
+        "合同额": "#f17522",
+        "营业额": "#4976cb",
+        "经营性现金净流": "#6baf3e",
+        "利润总额": "#663299",
+        "投资额": "#0070c1",
+        "投资回款": "#c55a10"
       },
-      searchinfo: {},
-      companylist: ["中国建筑", "asdfasdfa", "safdasdf"]
+      searchinfo: {
+        company: "中国建筑第五工程局有限公司"
+      },
+      companylist: ["中国建筑第五工程局有限公司"]
     }
   },
   methods: {
+    getToyearLast(data, str) {
+      let _this = this;
+      let result = {};
+      let toyear = data.find((v, k) => {
+        return v.name.indexOf('今年');
+      });
+      if (toyear.data && toyear.data.length > 0) {
+        let obj =  toyear.data[toyear.data.length - 1];
+        result = {
+          value: obj.value,
+          name: str,
+          itemStyle: {
+            normal: {
+              color: _this.colors[str]
+            }
+          }
+        }
+      }
+      return result;
+    }
   },
   ready() {
     var _this = this;
-    api.post('/api/main/target').then(function (resp) {
+    api.post('http://172.30.201.135:10103/mainindicator/jsonread').then(function (resp) {
       _.each(resp.data, (content, type) => {
         content.forEach((v, k) => {
           v.color = _this.colors[v.name];
         });
       });
-      _this.finance.data = resp.data.finance;
-      _this.business.data = resp.data.business;
+      _this.contract.data = resp.data.contract;
+      _this.account.data = resp.data.account;
+      _this.cash.data = resp.data.cash;
+      _this.income.data = resp.data.income;
       _this.invest.data = resp.data.invest;
-      _this.fiveyearsmoney.data = resp.data.fiveyearsmoney;
-      _this.fiveyearspercentage.data = resp.data.fiveyearspercentage;
+      _this.payback.data = resp.data.payback;
+      _this.bar1.data = [
+        {
+          name: "bar1",
+          data: [_this.getToyearLast(resp.data.contract, "合同额"), _this.getToyearLast(resp.data.account, "营业额")]
+        }
+      ];
+      _this.bar2.data = [
+        {
+          name: "bar2",
+          data: [_this.getToyearLast(resp.data.cash, "经营性现金净流"), _this.getToyearLast(resp.data.income, "利润总额")]
+        }
+      ];
+      _this.bar3.data = [
+        {
+          name: "bar3",
+          data: [_this.getToyearLast(resp.data.invest, "投资额"), _this.getToyearLast(resp.data.payback, "投资回款")]
+        }
+      ];
     }).catch(function (e) {
       console.error(e);
       Toast.show("获取信息失败");
