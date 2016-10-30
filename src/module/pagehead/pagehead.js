@@ -12,34 +12,35 @@ var PageHead = Vue.component('page-head', {
         {
           name: "主要指标",
           link: "/index/main/target",
-          icon: ""
+          icon: "main"
         },
         {
           name: "市场营销",
           link: "/index/market/menu",
-          icon: ""
+          icon: "market"
         },
         {
           name: "生产技术",
           link: "/index/product/menu",
-          icon: ""
+          icon: "product"
         },
         {
           name: "财务管理",
           link: "/index/finance/menu",
-          icon: ""
+          icon: "finance"
         },
         {
           name: "人力资源",
           link: "/index/hr/team",
-          icon: ""
+          icon: "hr"
         },
         {
           name: "项目运营",
           link: "/index/operate/operation",
-          icon: ""
+          icon: "operate"
         }
-      ]
+      ],
+      path: this.$route.path
     }
   },
   methods: {
@@ -47,6 +48,11 @@ var PageHead = Vue.component('page-head', {
   computed: {
   },
   ready() {
+  },
+  watch: {
+    $route() {
+      this.path = this.$route.path;
+    }
   }
 });
 

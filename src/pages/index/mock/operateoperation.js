@@ -2,147 +2,52 @@ module.exports = {
   method: 'POST',
   path: '/api/operate/operation',
   response: {
-    "allCompany": [
-      {
-        "name": "合同额",
-        "data": [
-          {
-            "name": "总承包公司",
-            "value": 84.70
-          },
-          {
-            "name": "三公司",
-            "value": 63.64
-          },
-          {
-            "name": "河南公司",
-            "value": 63.14
-          },
-          {
-            "name": "山东公司",
-            "value": 61.85
-          },
-          {
-            "name": "河北公司",
-            "value": 54.28
-          },
-          {
-            "name": "北京公司",
-            "value": 51.26
-          },
-          {
-            "name": "安徽公司",
-            "value": 50.16
-          },
-          {
-            "name": "广东公司",
-            "value": 44.51
-          }
-        ]
-      },
-      {
-        "name": "项目个数",
-        "data": [
-          {
-            "name": "总承包公司",
-            "value": 84.70
-          },
-          {
-            "name": "三公司",
-            "value": 63.64
-          },
-          {
-            "name": "河南公司",
-            "value": 63.14
-          },
-          {
-            "name": "山东公司",
-            "value": 61.85
-          },
-          {
-            "name": "河北公司",
-            "value": 54.28
-          },
-          {
-            "name": "北京公司",
-            "value": 51.26
-          },
-          {
-            "name": "安徽公司",
-            "value": 50.16
-          },
-          {
-            "name": "广东公司",
-            "value": 44.51
-          }
-        ]
-      }
-    ],
-    "contractRank": [
-      {
-        "name": "合同额排名",
-        "data": [
-          {
-            "name": "总承包公司",
-            "value": 84.70
-          },
-          {
-            "name": "三公司",
-            "value": 63.64
-          },
-          {
-            "name": "河南公司",
-            "value": 63.14
-          },
-          {
-            "name": "山东公司",
-            "value": 61.85
-          },
-          {
-            "name": "河北公司",
-            "value": 54.28
-          },
-          {
-            "name": "北京公司",
-            "value": 51.26
-          },
-          {
-            "name": "安徽公司",
-            "value": 50.16
-          },
-          {
-            "name": "广东公司",
-            "value": 44.51
-          }
-        ]
-      }
-    ],
-    "thirdCompany": [
-      {
-        "name": "各公司三级单位",
-        "data": [
-          {
-            "name": "总承包公司",
-            "value": 84.70
-          },
-          {
-            "name": "三公司",
-            "value": 63.64
-          },
-          {
-            "name": "河南公司",
-            "value": 63.14
-          },
-          {
-            "name": "山东公司",
-            "value": 61.85
-          },
-          {
-            "name": "河北公司",
-            "value": 54.28
-          }
-        ]
-      }
-    ]
+    "circlerect": {
+      "company": "中建五局河南公司机关",
+      "state": "在建",
+      "person": "谢征雨",
+      "phone": "158-7485-1929",
+      "contractCost": "16,252.63",
+      "responseCost": "15,277.48",
+      "targetCost": "14,916.56",
+      "realCost": "14,666.56",
+      "dealPrice": "13,070.36",
+      "economyIncome": "975.16",
+      "manageIncome": "610.91",
+      "dealIncome": "-3,182.27",
+      "manualCost": "4,420.02",
+      "machineCost": "279.36",
+      "assignCost": "3,731.35",
+      "aliveCost": "3,731.35",
+      "staffCost": "3,731.35",
+      "allContractCost": "48,866.36",
+      "allResponseCost": "45,690.05",
+      "allTargetCost": "40,605.57"
+    },
+    "fourusage": {
+      "completeWork": "16252.63",
+      "confirmAmout": "12970.36",
+      "confirmRate": "79.8%",
+      "unconfirmAmount": "3282.27",
+      "receiveAmount": "11944.62",
+      "ontimeAmount": "",
+      "bytimeAmount": "1025.74",
+      "storeStaff": "0",
+      "undispatchStaff": "0",
+      "undispatchFacility": "7.72",
+      "deserveAmount": "3557.47",
+      "billContract": "1313.29",
+      "otherAmount": "256.8",
+      "businessIncome": "1776.48",
+      "IncomeRate": "10.93%",
+      "chartRate": "202.31",
+      "innerDeposit": "632.45",
+      "manageDepartCash": "632.45",
+      "emitCompanyAmount": "778.87",
+      "ticketUse": "0",
+      "innerLend": "0",
+      "cashFlow": "1411.32"
+    },
+    "other": []
   }
 };

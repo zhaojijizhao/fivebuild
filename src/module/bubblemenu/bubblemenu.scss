@@ -3,9 +3,21 @@
 a{
   text-decoration: none;
 }
+.bubble__menu-title{
+  padding:0 rem(20);
+  line-height: rem(32);
+  font-size: rem(14);
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+}
 .bubble__menu{
   position: relative;
   z-index: 1;
+  padding: 15% 0;
+  background-color: #fff;
+  .bgimg{
+    width: 100%;
+  }
   .bubble__menu-link{
     position: absolute;
     z-index: 2;
@@ -84,6 +96,7 @@ a{
 
 @include max-screen(400px) {
   .bubble__menu{
+    padding:30% 0;
     .bubble__menu-link{
       &.bubble__menu-link-main{
         margin: rem(-55) 0 0 rem(-55);

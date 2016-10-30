@@ -4,16 +4,70 @@
 li{
   list-style-type: none;
 }
-.page__head-nav{
+.page__head-nav {
   padding: 0;
-  margin: 0;
+  margin: 0 0 rem(5) 0;
   width:100%;
   overflow-x:auto;
   white-space: nowrap;
-  li{
+  background-color: #fff;
+  li {
     display:inline-block;
-    width: 100px;
-    height: 100px;
-    line-height: 100px;
+    padding: rem(10);
+    width: rem(100);
+    height: rem(90);
+    line-height: rem(20);
+    font-size: rem(14);
+    text-align: center;
+    box-sizing:border-box;
+    .icon {
+      display:block;
+      width: rem(50);
+      height: rem(50);
+      margin: 0 auto;
+      background-repeat: no-repeat;
+      background-position:center;
+      background-size: contain;
+      &.icon-market {
+        background-image: url("./img/market.png");
+      }
+      &.icon-product {
+        background-image: url("./img/product.png");
+      }
+      &.icon-finance {
+        background-image: url("./img/finance.png");
+      }
+      &.icon-hr {
+        background-image: url("./img/hr.png");
+      }
+      &.icon-main {
+        background-image: url("./img/main.png");
+      }
+      &.icon-operate {
+        background-image: url("./img/operate.png");
+      }
+    }
+    &:hover,
+    &.on{
+      color:#f60;
+      .icon-market {
+        background-image: url("./img/marketon.png");
+      }
+      .icon-product {
+        background-image: url("./img/producton.png");
+      }
+      .icon-finance {
+        background-image: url("./img/financeon.png");
+      }
+      .icon-hr {
+        background-image: url("./img/hron.png");
+      }
+      .icon-main {
+        background-image: url("./img/mainon.png");
+      }
+      .icon-operate {
+        background-image: url("./img/operateon.png");
+      }
+    }
   }
 }

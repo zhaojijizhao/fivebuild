@@ -5,6 +5,7 @@ var _ = require('lodash');
 var Toast = require('@component/toast/toast');
 require('@module/commonbox/commonbox');
 require('@module/searchbox/searchbox');
+require('./operateoperation.scss');
 
 var OperateOperation = Vue.extend({
   template: require('./operateoperation.html'),

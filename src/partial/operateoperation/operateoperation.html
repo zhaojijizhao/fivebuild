@@ -1,10 +1,267 @@
 <div class="">
   <search-box :searchinfo.sync="searchinfo" :companylist="companylist"></search-box>
   <common-box title="成本方圆图">
+    <div class="cost__rect__cirle">
+      <div class="top-area">
+        <p class="top-list"><i class="fa fa-home"></i>{{circlerect.company}}</p>
+        <ul class="top-list">
+          <li><i class="fa fa-heart"></i>{{circlerect.state}}</li>
+          <li><i class="fa fa-user"></i>{{circlerect.person}}</li>
+          <li><i class="fa fa-phone"></i>{{circlerect.phone}}</li>
+        </ul>
+      </div>
+      <div class="contnt-area">
+        <img src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" />
+        <ul class="red-block">
+          <li>工期</li>
+          <li>质量</li>
+          <li>环保</li>
+          <li>安全</li>
+        </ul>
+        <ul class="data-blocks">
+          <li>
+            <p>项目合同造价</p>
+            <p>{{circlerect.contractCost}}</p>
+          </li>
+          <li>
+            <p>项目责任成本</p>
+            <p>{{circlerect.responseCost}}</p>
+          </li>
+          <li>
+            <p>项目目标成本</p>
+            <p>{{circlerect.targetCost}}</p>
+          </li>
+          <li>
+            <p>项目实际成本</p>
+            <p>{{circlerect.realCost}}</p>
+          </li>
+          <li>
+            <p>项目结算总价</p>
+            <p>{{circlerect.dealPrice}}</p>
+          </li>
+        </ul>
+        <ul class="data-blocks">
+          <li>
+            <p>经济效益</p>
+            <p>{{circlerect.economyIncome}}</p>
+          </li>
+          <li>
+            <p>管理效益</p>
+            <p>{{circlerect.manageIncome}}</p>
+          </li>
+          <li>
+            <p>结算效益</p>
+            <p>{{circlerect.dealIncome}}</p>
+          </li>
+          <li class="sp">
+            <i class="fa fa-arrow-up"></i>
+            <p>
+              <span>签证索赔收益</span>
+              <span>技术进步收益</span>
+              <span>市场机会收益</span>
+            </p>
+          </li>
+        </ul>
+        <div class="out-circle">
+          <div class="in-circle">
+            <div class="out-rect">
+              <ul class="in-c">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+              </ul>
+              <div class="sec-rect">
+                <div class="in-rect">
+                  <ul>
+                    <li>
+                      <p class="white">{{circlerect.manualCost}}</p>
+                      <p>人工费</p>
+                    </li>
+                    <li>
+                      <p class="white">{{circlerect.machineCost}}</p>
+                      <p>机械费</p>
+                    </li>
+                    <li>
+                      <p>分包<br/>工理费</p>
+                      <p class="white">{{circlerect.assignCost}}</p>
+                    </li>
+                    <li>
+                      <p>现场<br/>经费</p>
+                      <p class="white">{{circlerect.aliveCost}}</p>
+                    </li>
+                    <li>
+                      <p>材料费</p>
+                      <p class="white">{{circlerect.staffCost}}</p>
+                    </li>
+                  </ul>
+                  <div class="mid-rect"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ul class="bottom-table">
+        <li>
+          <p>{{circlerect.allContractCost}}</p>
+          <p>总合同造价</p>
+        </li>
+        <li>
+          <p>{{circlerect.allResponseCost}}</p>
+          <p>总责任成本</p>
+        </li>
+        <li>
+          <p>{{circlerect.allTargetCost}}</p>
+          <p>总目标成本</p>
+        </li>
+      </ul>
+    </div>
   </common-box>
   <search-box :searchinfo.sync="searchinfo" :companylist="companylist"></search-box>
   <common-box title="一单四用图" subtitle="亿" >
+    <div class="one__four__usage">
+      <img src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" />
+      <ul class="tabs">
+        <li>
+          <ul>
+            <li>完成工作量:{{fourusage.completeWork}}</li>
+            <li>确认工程款:{{fourusage.confirmAmout}}</li>
+            <li>未确认工程款:{{fourusage.unconfirmAmount}}<span>确认率:{{fourusage.confirmRate}}</span></li>
+            <li>已收工程款:{{fourusage.receiveAmount}}</li>
+            <li>到期应收款:{{fourusage.ontimeAmount}}</li>
+            <li>未到期应收款:{{fourusage.bytimeAmount}}</li>
+          </ul>
+          <p>债权</p>
+        </li>
+        <li>
+          <ul>
+            <li>库存材料:{{fourusage.storeStaff}}</li>
+            <li>未摊周转材料:{{fourusage.undispatchStaff}}</li>
+            <li>未摊临时设施:{{fourusage.undispatchFacility}}</li>
+          </ul>
+          <p>存货</p>
+        </li>
+        <li>
+          <ul>
+            <li>应付账款:{{fourusage.deserveAmount}}</li>
+            <li>合同欠款:{{fourusage.billContract}}</li>
+            <li>其他应付款:{{fourusage.otherAmount}}</li>
+          </ul>
+          <p>债务</p>
+        </li>
+        <li>
+          <ul>
+            <li>商务利润:{{fourusage.businessIncome}}</li>
+            <li>利润率:{{fourusage.IncomeRate}}</li>
+            <li>财务报表利润:{{fourusage.chartRate}}</li>
+          </ul>
+          <p>效益</p>
+        </li>
+      </ul>
+      <ul class="labels">
+        <li>过程成本</li>
+        <li>收付流量</li>
+        <li>分资管控</li>
+        <li>财务核算</li>
+      </ul>
+      <div class="fivestars">
+        <div>
+          <ul class="fivelines">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+          <p>
+            现金<br/>
+            <span>{{fourusage.cashFlow}}</span><br/>
+            净流
+          </p>
+        </div>
+        <ul class="circles">
+          <li>
+            <div class="txt">内部存款余额</div>
+            <span>{{fourusage.innerDeposit}}</span>
+          </li>
+          <li>
+            <div class="txt">内部借款余额</div>
+            <span>{{fourusage.innerLend}}</span>
+          </li>
+          <li>
+            <div class="txt">经理部现金流</div>
+            <span>{{fourusage.manageDepartCash}}</span>
+          </li>
+          <li>
+            <div class="txt">票据占用</div>
+            <span>{{fourusage.ticketUse}}</span>
+          </li>
+          <li>
+            <div class="txt">上缴公司资金</div>
+            <span>{{fourusage.emitCompanyAmount}}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
   </common-box>
   <common-box>
+    <div class="alarm-block">
+      <div class="alarm-item">
+        <p>预警</p>
+        <ul>
+          <li>
+            <span class="green"></span>
+            <p>合同应收款</p>
+          </li>
+          <li>
+            <span class="gray"></span>
+            <p>现金净流</p>
+          </li>
+        </ul>
+      </div>
+      <div class="alarm-item">
+        <p>合同应收款项预警说明</p>
+        <ul>
+          <li>
+            <span class="green"></span>
+            <p>1个月以内</p>
+          </li>
+          <li>
+            <span class="blue"></span>
+            <p>2-3个月</p>
+          </li>
+          <li>
+            <span class="yellow"></span>
+            <p>3-6个月</p>
+          </li>
+          <li>
+            <span class="red"></span>
+            <p>6个月以上</p>
+          </li>
+        </ul>
+      </div>
+      <div class="alarm-item">
+        <p>现金流预警说明</p>
+        <ul>
+          <li>
+            <span class="green"></span>
+            <p>扣上缴后为正</p>
+          </li>
+          <li>
+            <span class="yellow"></span>
+            <p>垫资500万以内</p>
+          </li>
+          <li>
+            <span class="blue"></span>
+            <p>不足扣上缴</p>
+          </li>
+          <li>
+            <span class="red"></span>
+            <p>垫资500万以上</p>
+          </li>
+        </ul>
+      </div>
+    </div>
   </common-box>
 </div>
