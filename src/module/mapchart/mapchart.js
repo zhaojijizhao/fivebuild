@@ -1,5 +1,9 @@
 'use strict';
-var echarts = require('echarts');
+var echarts = require('echarts/lib/echarts');
+require('echarts/lib/chart/scatter');
+require('echarts/lib/component/tooltip');
+require('echarts/lib/component/title');
+
 var {color} = require('@common');
 var _ = require('lodash');
 require('@vendor/china');

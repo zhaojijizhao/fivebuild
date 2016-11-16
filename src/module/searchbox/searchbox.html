@@ -2,11 +2,15 @@
   <label @click="focus('company')" class="search__box-label" >
     {{searchinfo.company||"安装公司"}}
   </label>
+  <label v-show="searchinfo.project" @click="focus('project')" class="search__box-label" >
+    {{searchinfo.project||"项目名称"}}
+  </label>
   <label class="search__box-label">
     <span @click="focus('year')">{{searchinfo.year}}年</span>
     <span @click="focus('month')">{{searchinfo.month}}月</span>
   </label>
-  <pop :show.sync="companyshow" :list="companylist" :name.sync="searchinfo.company"></pop>
-  <pop :show.sync="yearshow" :list="yearlist" :name.sync="searchinfo.year"></pop>
-  <pop :show.sync="monthshow" :list="monthlist" :name.sync="searchinfo.month"></pop>
+  <pop :show.sync="companyshow" :list="companylist" :change="change" :name.sync="searchinfo.company" type="company"></pop>
+  <pop :show.sync="yearshow" :list="yearlist" :change="change" :name.sync="searchinfo.year" type="year"></pop>
+  <pop :show.sync="projectshow" :list="projectlist" :change="change" :name.sync="searchinfo.project" type="project"></pop>
+  <pop :show.sync="monthshow" :list="monthlist" :changemonth="changemonth" :change="change" :name.sync="searchinfo.month" type="month"></pop>
 </common-box>

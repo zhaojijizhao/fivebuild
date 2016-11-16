@@ -1,13 +1,19 @@
 <div class="">
-  <search-box :searchinfo.sync="searchinfo" :companylist="companylist"></search-box>
-  <common-box title="" >
-    <bar-chart :data="bar1" chartid='maintarget-bar1' ></bar-chart>
-  </common-box>
-  <common-box title="" >
-    <bar-chart :data="bar2" chartid='maintarget-bar2' ></bar-chart>
-  </common-box>
-  <common-box title="" >
-    <bar-chart :data="bar3" chartid='maintarget-bar3' ></bar-chart>
+  <div class="common-head">
+    <i class="fa fa-close" id="closewindow" onclick="window.location.href = 'http://yyjz-portal-h5-native/closewindow'"></i>
+    主要指标
+  </div>
+  <search-box :searchinfo.sync="searchinfo" :companylist="companylist" :changemonth="changeMonth"></search-box>
+  <common-box title="主要指标(亿元)" >
+    <div style="margin-left:-15px">
+      <bar-chart :data="bar1" chartid='maintarget-bar1' height="150px" ></bar-chart>
+    </div>
+    <div style="margin-left:-15px">
+      <bar-chart :data="bar2" chartid='maintarget-bar2' height="150px" ></bar-chart>
+    </div>
+    <div style="margin-left:-15px">
+      <bar-chart :data="bar3" chartid='maintarget-bar3' height="150px" ></bar-chart>
+    </div>
   </common-box>
   <common-box title="两年同比趋势折线图-合同额" >
     <line-chart :data="contract" chartid='maintarget-contract' ></line-chart>

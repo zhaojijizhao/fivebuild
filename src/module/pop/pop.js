@@ -26,12 +26,29 @@ var Pop = Vue.component('pop', {
     name: {
       default: null
     },
+    type: {
+      defualt: ''
+    },
+    change: {
+      default: function() {
+      }
+    },
+    changemonth: {
+      default: function() {
+      }
+    }
   },
   methods: {
     choose(index, item) {
       this.show = false;
       this.index = index;
       this.name = item;
+      if (this.changemonth) {
+        this.changemonth(item);
+      }
+      if (this.change) {
+        this.change(item, this.type);
+      }
     }
   },
   data() {

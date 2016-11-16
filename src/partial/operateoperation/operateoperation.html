@@ -1,5 +1,9 @@
 <div class="">
-  <search-box :searchinfo.sync="searchinfo" :companylist="companylist"></search-box>
+  <div class="common-head">
+    <i class="fa fa-close" id="closewindow" onclick="window.location.href = 'http://yyjz-portal-h5-native/closewindow'"></i>
+    项目运营
+  </div>
+  <!-- <search-box :searchinfo.sync="searchinfo" :companylist="companylist"></search-box>
   <common-box title="成本方圆图">
     <div class="cost__rect__cirle">
       <div class="top-area">
@@ -117,8 +121,8 @@
         </li>
       </ul>
     </div>
-  </common-box>
-  <search-box :searchinfo.sync="searchinfo" :companylist="companylist"></search-box>
+  </common-box> -->
+  <search-box :searchinfo.sync="searchinfo" :companylist="companylist" :ml="monthlist" :projectlist="projectlist" :change="change"></search-box>
   <common-box title="一单四用图" subtitle="亿" >
     <div class="one__four__usage">
       <img src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" />

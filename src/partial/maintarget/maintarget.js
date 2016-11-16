@@ -44,16 +44,16 @@ var MainTarget = Vue.extend({
       colors: {
         "合同额今年": color.blue,
         "合同额去年": color.green,
-        "营业额今年": color.yellow,
+        "营业额今年": color.blue,
         "营业额去年": color.green,
         "经营性现金净流今年": color.blue,
-        "经营性现金净流去年": color.yellow,
+        "经营性现金净流去年": color.green,
         "利润总额今年": color.blue,
         "利润总额去年": color.green,
-        "投资额今年": color.yellow,
+        "投资额今年": color.blue,
         "投资额去年": color.green,
         "投资回款今年": color.blue,
-        "投资回款去年": color.yellow,
+        "投资回款去年": color.green,
         "合同额": "#f17522",
         "营业额": "#4976cb",
         "经营性现金净流": "#6baf3e",
@@ -62,7 +62,9 @@ var MainTarget = Vue.extend({
         "投资回款": "#c55a10"
       },
       searchinfo: {
-        company: "中国建筑第五工程局有限公司"
+        company: "中国建筑第五工程局有限公司",
+        year: new Date().getYear() + 1900,
+        month: new Date().getMonth() + 1
       },
       companylist: ["中国建筑第五工程局有限公司"]
     }
@@ -75,7 +77,7 @@ var MainTarget = Vue.extend({
         return v.name.indexOf('今年');
       });
       if (toyear.data && toyear.data.length > 0) {
-        let obj =  toyear.data[toyear.data.length - 1];
+        let obj =  toyear.data[_this.searchinfo.month - 1];
         result = {
           value: obj.value,
           name: str,
@@ -87,11 +89,43 @@ var MainTarget = Vue.extend({
         }
       }
       return result;
+    },
+    changeMonth(e) {
+      let _this = this;
+      _this.bar1.data = [
+        {
+          name: "主要指标1",
+          data: [
+            _this.getToyearLast(_this.contract.data, "合同额"),
+            _this.getToyearLast(_this.account.data, "营业额")
+          ]
+        }
+      ];
+      _this.bar2.data = [
+        {
+          name: "主要指标2",
+          data: [
+            _this.getToyearLast(_this.cash.data, "经营性现金净流"),
+            _this.getToyearLast(_this.income.data, "利润总额")
+          ]
+        }
+      ];
+      _this.bar3.data = [
+        {
+          name: "主要指标3",
+          data: [
+            _this.getToyearLast(_this.invest.data, "投资额"),
+            _this.getToyearLast(_this.payback.data, "投资回款")
+          ]
+        }
+      ];
     }
   },
   ready() {
     var _this = this;
-    api.post('http://172.30.201.135:10103/mainindicator/jsonread').then(function (resp) {
+    api.post('http://yd.cscec5b.com.cn:10103/mainindicator/jsonread').then(function (resp) {
+      // 'http://172.30.201.135:10103/mainindicator/jsonread'
+      //'./api/main/target'
       _.each(resp.data, (content, type) => {
         content.forEach((v, k) => {
           v.color = _this.colors[v.name];
@@ -105,20 +139,29 @@ var MainTarget = Vue.extend({
       _this.payback.data = resp.data.payback;
       _this.bar1.data = [
         {
-          name: "bar1",
-          data: [_this.getToyearLast(resp.data.contract, "合同额"), _this.getToyearLast(resp.data.account, "营业额")]
+          name: "主要指标1",
+          data: [
+            _this.getToyearLast(resp.data.contract, "合同额"),
+            _this.getToyearLast(resp.data.account, "营业额")
+          ]
         }
       ];
       _this.bar2.data = [
         {
-          name: "bar2",
-          data: [_this.getToyearLast(resp.data.cash, "经营性现金净流"), _this.getToyearLast(resp.data.income, "利润总额")]
+          name: "主要指标2",
+          data: [
+            _this.getToyearLast(resp.data.cash, "经营性现金净流"),
+            _this.getToyearLast(resp.data.income, "利润总额")
+          ]
         }
       ];
       _this.bar3.data = [
         {
-          name: "bar3",
-          data: [_this.getToyearLast(resp.data.invest, "投资额"), _this.getToyearLast(resp.data.payback, "投资回款")]
+          name: "主要指标3",
+          data: [
+            _this.getToyearLast(resp.data.invest, "投资额"),
+            _this.getToyearLast(resp.data.payback, "投资回款")
+          ]
         }
       ];
     }).catch(function (e) {

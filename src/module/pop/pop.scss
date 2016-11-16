@@ -3,7 +3,7 @@
 
 .pop__block{
   position: fixed;
-  z-index: 1;
+  z-index: 99;
   top: 0;
   right: 0;
   left: 0;
@@ -13,14 +13,14 @@
     display:block;
     padding: 0;
     margin: rem(40) rem(20);
-    max-height: rem(120);
+    max-height: rem(400);
     background-color: rgba(0,0,0,.5);
     border-radius: rem(5);
     overflow-x:hidden;
     overflow-y:auto;
     li{
       padding:0 rem(10);
-      line-height: rem(30);
+      line-height: rem(42);
       color: #fff;
       text-align: center;
       list-style-type:none;

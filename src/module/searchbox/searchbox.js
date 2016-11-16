@@ -15,11 +15,26 @@ var SearchBox = Vue.component('search-box', {
       default: {
         company: null,
         year: null,
-        month: null
+        month: null,
+        project: null
       }
+    },
+    change: {
+      default: function() {
+      }
+    },
+    month: {
+      default: ''
+    },
+    projectlist: {
+      default: []
     },
     companylist: {
       default: []
+    },
+    changemonth: {
+      default: function() {
+      }
     }
   },
   methods: {
@@ -29,11 +44,17 @@ var SearchBox = Vue.component('search-box', {
   },
   data() {
     return {
-      yearlist: _.range(2010, new Date().getYear() + 1900),
-      monthlist: _.range(1, 12),
+      yearlist: [2016],
+      monthlist: _.range(1, new Date().getMonth() + 2),
       companyshow: false,
       yearshow: false,
-      monthshow: false
+      monthshow: false,
+      projectshow: false
+    }
+  },
+  computed: {
+    monthlist() {
+      return this.month;
     }
   },
   ready() {

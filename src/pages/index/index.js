@@ -193,6 +193,22 @@ router.map({
   }
 });
 
+router.map({
+  '/index': {
+    component: Layout,
+    subRoutes: {
+      '/main': {
+        component: Main, //主要指标
+        subRoutes: {
+          '/target': {
+            component: MainTarget//主要指标
+          }
+        }
+      }
+    }
+  }
+});
+
 router.redirect({
   '*': '/index/main/target'
 })

@@ -1,5 +1,8 @@
 'use strict';
-var echarts = require('echarts');
+var echarts = require('echarts/lib/echarts');
+require('echarts/lib/chart/bar');
+require('echarts/lib/component/tooltip');
+require('echarts/lib/component/title');
 var {color} = require('@common');
 var _ = require('lodash');
 require('./barchart.scss');
@@ -12,6 +15,9 @@ var BarChart = Vue.component('bar-chart', {
     },
     chartid: {
       default: 'chartid'
+    },
+    height: {
+      default: "300px"
     }
   },
   data() {

@@ -1,5 +1,9 @@
 'use strict';
-var echarts = require('echarts');
+var echarts = require('echarts/lib/echarts');
+require('echarts/lib/chart/line');
+require('echarts/lib/component/tooltip');
+require('echarts/lib/component/title');
+
 var {color} = require('@common');
 var _ = require('lodash');
 require('./linechart.scss');
@@ -115,27 +119,21 @@ var LineChart = Vue.component('line-chart', {
           return v.name.split('-').join('\n');
         });
 
-        // //yAxis
-        // if (this.data.data[0].line) {
-        //   let linelist = this.data.data[0].line;
-        //   let showline = this.data.data[0].showline;
-        //   this.option.yAxis.axisLabel = {
-        //     show: showline,
-        //     textStyle: {
-        //       color: function(val) {
-        //         let result = 'transparent';
-        //         linelist.forEach((v, k) => {
-        //           if (v.value == val) {
-        //             result = '#999';
-        //           }
-        //         });
-        //         return result;
-        //       }
-        //     },
-        //     formatter: function(value,  index) {
-        //       return value + "%"
-        //     }
-        //   };
+        //yAxis
+        if (this.data.data) {
+          let linelist = this.data.data[0].line;
+          let showline = this.data.data[0].showline;
+          let min = this.data.data[0].data[0].value;
+          let max = this.data.data[0].data[0].value;
+          this.data.data.map((v, k) => {
+            v.data.map((item, key) => {
+              min = Math.min(item.value, min);
+              max = Math.max(item.value, max);
+            })
+          });
+
+          this.option.yAxis.interval = parseInt((max - min) / 10, 10);
+        }
 
         //   if (showline) {
         //     this.option.yAxis.splitLine.lineStyle.color =
